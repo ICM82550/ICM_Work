@@ -1,0 +1,23 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Background}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Problem restatement and analysis}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{Assumption}{}% 4
+\BOOKMARK [1][-]{section.3}{Symbol Description}{}% 5
+\BOOKMARK [1][-]{section.4}{Preparation for Model}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Task 1: Metrics of Population Zero}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.2}{Task 2: Sample population for migration}{section.4}% 8
+\BOOKMARK [1][-]{section.5}{Model Construction}{}% 9
+\BOOKMARK [2][-]{subsection.5.1}{Multiplex human social relationship network}{section.5}% 10
+\BOOKMARK [2][-]{subsection.5.2}{Feature extraction of individual attributes based on the Deep Learning}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.3}{Social network partitioning based on Spectral Bisection Method}{section.5}% 12
+\BOOKMARK [2][-]{subsection.5.4}{Analysis of the model}{section.5}% 13
+\BOOKMARK [3][-]{subsubsection.5.4.1}{Task 3: The best strategies}{subsection.5.4}% 14
+\BOOKMARK [3][-]{subsubsection.5.4.2}{Task 4: Operations of subgroups}{subsection.5.4}% 15
+\BOOKMARK [1][-]{section.6}{Sensitivity Analysis}{}% 16
+\BOOKMARK [2][-]{subsection.6.1}{Task 5: Additional migration}{section.6}% 17
+\BOOKMARK [2][-]{subsection.6.2}{Task 6: A much larger scale migration}{section.6}% 18
+\BOOKMARK [1][-]{section.7}{Model Extension}{}% 19
+\BOOKMARK [1][-]{section.8}{Strengths and Weaknesses}{}% 20
+\BOOKMARK [2][-]{subsection.8.1}{Strengths}{section.8}% 21
+\BOOKMARK [2][-]{subsection.8.2}{Weaknesses}{section.8}% 22
+\BOOKMARK [1][-]{section*.1}{References}{}% 23

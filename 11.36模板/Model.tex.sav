@@ -1,0 +1,532 @@
+\documentclass[a4paper,12pt]{article}
+%在此可进行页面设置
+%\textwidth=14cm
+%\textheight=22cm
+
+\usepackage[67197]{MCMPackage}  %队号在这里填写
+%\usepackage[XXX,nosheet]{MCMPackage}% 这个参数形式可去掉summary sheet 首页。
+\problem{F}  % 选题
+
+\title{Article Title}%在此插入论文标题
+\date{}
+
+%设置段落之间的距离，若不需要删除或者注释掉即可。
+\setlength\parskip{.5\baselineskip}
+
+%为了首行缩进
+%\usepackage{indentfirst}
+%\setlength{\parindent}{2em}
+
+\begin{document}
+%摘要
+\begin{abstract}
+In order to design an economic-workforce-education system for migration on Mars, our idea is to establish a comprehensive model with plentiful properties of nodes which are consistent with the current states. Therefore, the concept of \emph{Multiplex Network} is introduced to manifest the relationship between individualities distinctly. What's more, the notion of \emph{Deep Learning} is applied to figure out some abstract attributes on the foundation of practical parameters.
+
+As to Task 1 \& 2, for the sake of measuring the happiness of residents, we set up an evaluation system made up of three priority parameters(income,education and social equality). Having considered the differences between fields, the ideal distribution function is founded on separate field. Pearson correlation coefficient is utilized to describe how the practical distribution is relative to the ideal, and the better correlation it indicates, the better the actual distribution is. On the basis of the analysis in Task 1, we generate a sample population of 10,000 people to Mars from the \emph{PUMS dataset}. The sampling algorithm focusing on the educational background and age, taking a group as a unit which is of maximum capacity.
+
+When solving the Task 3 \& 4, based on the parameters defined in Task 1, we establish \emph{Multiplex human social relationship network} to depict the dynamic process that the human society develops. The connection of the actual situation and the network is set up under the bold assumption that 
+
+\end{abstract}
+\maketitle%插入标题
+\thispagestyle{empty}% 本页不遍页码
+
+\newpage%另起一页插入目录
+\thispagestyle{empty}% 防止目录两页而出现一页带页码
+\tableofcontents% 目录
+\thispagestyle{empty}
+\newpage%另起一页书写正文
+\pagenumbering{arabic}% 开始编页码（阿拉伯数字）
+\section{Introduction}
+
+%\cite{RefB}.% 引用参考文献
+
+%\subsection{Background}  %写背景可有可无
+\subsection{Background}%背景
+In the year of 2095, equipped with modern technology, the project called UTOPIA to migrate to the Mars is about to be under implementation. The international agency has completed the short-term planned experiments, which is utilized to guide the development of the migration planet and humanity society.
+
+In the project, some people in USA are chosen to be the first batch of resident population, who have the responsibility to ensure the operation of the new place of residence. Considering that the Mars need support in all fields, such as industry, business, agriculture, education and so on, the first wave of migration, called Population Zero, will include 10,000 persons, consisting of people of different ages, from separate working fields.
+
+For the sake of people in Utopian achieving the greatest quality of life with a vision of sustaining ability for 100 years, a series of policies have been planned and built on the earth that tested planned living conditions. It is the policies that provides the guideline of the advance in social equality, industrial progress, particularly, the high quality of residents' life. The Utopian is meant to make the living experience better than the Earthly one, which expresses at the aspect of the necessities, the equality at work and the basic education.
+
+Broadly speaking, Population Zero aims to have optimal conditions in many workforce and social living factors. How to maximize the GDP and the happiness is connected with the policies and feature of the migration population.
+
+\subsection{Problem restatement and analysis}%这一部分写问题分析以及我们要解决的问题
+For Task 1, we are required to define parameters and specific outcomes related to the three priority factors (income, education, and social equality) in Population Zero, and then the outcome of the factors ought to be predicted.
+
+Task 2 asks us to generate a sample population of 10,000 people to emigrate to Mars. In order to create the greatest value, people from varieties of fields are needed. In addition, the demographics distributions affect the sustainability of the human society.
+
+As for Task 3, how to integrate the three factors in Task 1 and how the system of society operate with the approach of time is of great importance.
+
+In regard to Task 4
+
+As to Task 5,
+
+
+
+
+
+
+
+\section{Assumption}% 这里写模型假设
+\begin{itemize}
+    \item the first assumption
+    \item the second assumption
+    \item the
+    \item th
+    \item
+\end{itemize}
+
+\section{Symbol Description}%符号说明
+In this section, we use some symbols for constructing the model as follows:
+\begin{center}% 居中
+\begin{tabular}{p{2cm}<{\centering} p{12cm}<{\centering}}%r 表示表格内文本右对齐；c表示居中对齐；l表示左对齐；| 表示竖铅直线
+    \toprule[2pt]
+    \textbf{Symbol} & \makecell[c]{\textbf{Description}}\\ %加粗指令为textbf{}
+    \hline   %cline可在指定列上下添加横线
+   %格式为  每行第一列&每行第二列\\
+    $f(x)$ & The   \\
+    $A_k$ & 2 \\
+    $f(m)$ & 3 \\
+    $S_k$& 4 \\
+    $T_k$& 5 \\
+    $C_k$& 6 \\
+    \bottomrule[2pt]  %底边框线宽度
+    %以下两条指令此处不用
+    %\caption{表格标题}
+    %\label{标签名}%便于交叉引用
+\end{tabular}
+\end{center}
+P.s:Other symbol instructions will be given in the text.
+
+\section{Preparation for model}
+\subsection{Task 1: Metrics of Population Zero}%人家论文里这么写的我先这么借鉴过来了
+The goal of Population Zero is optimum conditions, where the economic output reaches the maximum and the happiness of the residents is up to the best level. To qualify the status in many workforce and social living factors, three balancing factors are taken into granted:
+\begin{itemize}
+    \item[-] \emph{\textbf{Income:}} \ Whether a resident affords the necessities determines the happiness of his life. Thus, when taking each person as a unit to analyze the influence of income, it is wise to set the minimum living allowance and offer the residents sufficient compensation to ensure his income meeting it.
+    \item[-] \emph{\textbf{Education:}} \ In new-built manufactured cities, the development of human society has close connection with the capabilities that the new comers equipped. And the skills for work scarcely get rid of how well he educated.
+    \item[-] \emph{\textbf{Equality:}} \ Nothing has the power to change the importance of the equality, which affects the enthusiasm in the workforce, and affects the healthy development of human society. In this case, the focus of the factor is the rights of women, specially on the maternity and paternity leave.
+\end{itemize}
+\begin{figure}[!h]%[!hptb] !h意思是忽略美学标准，将照片固定到此位置；不会上下浮动% 支持格式eps, pdf, png, jpg
+\centering %使得插入的照片居中显示
+\includegraphics[width=1.0\textwidth]{./Pic/Metrics4.png} %图片标题
+\caption{the establishment of metrics}
+\label{fig:2}       % 给图片一个标签便于交叉引用
+\end{figure}
+
+\noindent \textbf{As to incomes}
+
+From the personal perspective, we establish a evaluating function $f(i)$ to indicate how content he is with his life, where $i$ represents the income one achieve per month. If a resident's income is too low to satisfy his basic needs, the value of $f(x)$ keeps the minimum status-0. On the contrary, when income is above the threshold, the income hardly works on how good their life is, and when the earning is not too high nor too low, the evaluating function show an increasing trend, which subjects to the Partial large $\Gamma$-distribution:
+
+\begin{equation}\label{income equ}
+ f(x)=\left\{ \begin{array}{lr}
+     0& x < a \\
+     {1-e^{{k}(x - 30)}}& x \geq a
+    \end{array} \right.
+\end{equation}
+\noindent The distribution is indicated in the picture(\ref{income pic}).
+
+\noindent \textbf{As to education}
+
+The first wave of migration is responsible for promoting the development of the new land. That is the reason why the workers in different fields are in demand. The labor force are divided into four parts: those engage in educational work, technological invention, the production of necessities and management, and meanwhile, the education received is divided into five levels, which are marked as 0 to 4, from the lowest one to the Combined the reality, we lay down the ideal distributions of population working for the four fields separately, depending on some existing functions.
+
+According to, bachelor's degree is required for a teacher qualification, so those take part in the education work is of high cultural background. Thus, most of them are masters, and others are bachelor. The distribution is expressed by the:
+\begin{equation}\label{education to equ}
+f(l_e)=\frac{1}{{l_e\sqrt {2\pi } \delta }}{e^{ - \frac{{{{(\ln l_e - \mu )}^2}}}{{2{\delta ^2}}}}}
+\end{equation}
+
+Similarly, as for the workers go in for the technological invention, the peak value is between 3 to 4, and the broad trend is the same as the distribution of educational workers:
+\begin{equation}\label{invention to equ}
+f(l_i)=a + f( - {l_e}){|_{{l_e} = {l_i}}}
+\end{equation}
+
+The education level of managers is relatively high, and a mass of them are of bachelor degree. The amount of those that has the educational background below junior high school graduation certification is too small to be neglected. The trend of distribution can be depicted by the segmentation equation (\ref{wealth to home country}), in which the first part and the third part is index function that can grow rapidly with the magnifying of dependent variable and the second part is logarithmic function whose increasing trend of growth is slow:
+\begin{equation}\label{wealth to home country}
+ f(m)=\left\{ \begin{array}{lr}
+     {e^k({l_m} - a)}& l_m < a\\
+     \ln ({l_m} - a) + b&  a \leq l_m < b \\
+     {e^-k({l_m} - a)} & x \geq b
+    \end{array} \right.
+\end{equation}
+
+In the same way, as to those who work on the production of necessities, there is no strict requirement on their background. Assuming that the number of samples is large enough, the ideal distribution obeys the normal distribution, and the set of its mean is between 2 to 3:
+\begin{equation}\label{production to equ}
+f(l_p)=\frac{1}{{\sqrt {2\pi } \delta }}{e^{ - \frac{{{{(x - \mu )}^2}}}{{2{\delta ^2}}}}}
+\end{equation}
+
+\noindent \textbf{As to equality}
+
+Three parameters, equality for practitioners, happiness of professional women and childcare expenses, donate to the evaluation of social equality.
+
+\emph{\textbf{Equality for practitioners:}} \ Two elements, income and proportion of employees in fields, is selected to structure normalized evaluating function.In reality, income reflects the recognition and respect from others, and the sex ratio of practitioners in each field is the reflection of the discrimination in most cases. We construct the evaluating function (\ref{equality for prac})
+\begin{equation}\label{equality for prac}
+{\varpi _1}\frac{{\left| {{i_w} - {i_m}} \right|}}{{\left| {{i_w} + {i_m}} \right|}} + {\varpi _2}\sum\limits_{j = 1}^4 {\frac{{\left| {{n_{wj}} - {n_{mj}}} \right|}}{{\left| {{n_{wj}} + {n_{mj}}} \right|}}}
+\end{equation}
+Where $i_w$ and $i_m$ is on behalf of the women and men's average income, $n_wj$ and $n_mj$ represents the number of female and male workers in the $j_th$ field. The four fields have been accounted for in the above.
+
+\emph{\textbf{Happiness of professional women:}} \ In this part, we focus on the length of maternity and paternity leave, considering that women of chidbearing age occupy a large proportion. The element itself influence the satisfaction of work both in physic and psychologic, we establish the evaluating function $h(d)$ of length $d_w$ and $d_m$, where $d_w$ and $d_m$ means the the length of maternity and paternity leave separately. Based on the fact that the longer the holiday is, the larger the value of the function is. Two extreme situations must be paid attention to-One is that if the length of the holiday is so short that she is hardly content with the status. At this point, the value of the $h(d)$ is up to the minimum; the other is that if the paid leave is rich enough to recover and take good care of baby, the length impacts a little on her life, which means that $h(d)$ is prescribed value. In total, the evaluating function of wealth subjects to the partial large Cauchy distribution:
+\begin{equation}\label{happiness of women equ}
+ h(d_w)=\left\{ \begin{array}{lr}
+     0& d_w < a\\
+     \frac{1}{{1 + \alpha {{(d_w - a)}^{ - \beta }}}}& d_w  \geq a
+    \end{array} \right.
+\end{equation}
+Meanwhile, there is a loss that the society suffers due to the maternity and paternity leave. The effects of paid leave is larger with the increase of length, which is similar to the index distribution:
+\begin{equation}\label{loss of equ}
+   p(d_w)=k{e^{{d_w}}}
+\end{equation}
+To integrate the equation (\ref{happiness of women equ})and(\ref{loss of equ}) on the basis of reality, we establish a comprehensive model:
+\begin{equation}\label{happiness integration equ}
+h({d_w},{d_m})={\varpi _{11}}h({d_w}) + {\varpi _{12}}h({d_w})h({d_m}) - [{\varpi _{21}}p({d_w}) + {\varpi _{22}}p({d_m})] + a
+\end{equation}
+
+\emph{\textbf{Childcare expenses:}} \ For the sake of sustainability, the affordable cost of childcare is required. When some youths of chidbearing age don't have the ability to pay for it, the equal balance changes. An appraising model exits:
+\begin{equation}\label{childcare equ}
+C = \frac{{{C_k}}}{{{i_t}}}
+\end{equation}
+Where the $C_k$ represents the cost of childcare, and $i_t$ the total incomes of a family.
+
+\subsection{Task 2:Sample population for migration}
+
+Population Zero aims to have optimal conditions in many workforce and social living factors, so the first wave of migration has to take the responsibility to build the new place of residence. The age is related to whether one is sufficient in energy to complete the complex work, and the education connects to how much one contributes to the progress of the cosmic colony. The two decisive factors are the criterion for sampling, and the exact operating methods are based on the set of Task 1:
+
+\noindent \textbf{\emph{As to educational background:}}
+
+To ensure the immigrants make contributions to all works of life, we set the proportion of each field. In Task 1, the ideal distribution of the educational background for Population Zero has been given in separate fields, with which the number of persons in each education level is figured out:
+\begin{equation}\label{edu sample pop}
+N(l) = {N_s}{p_j}f(l)
+\end{equation}
+Where $p$ symbolizes the ratio of each field, which satisfies the equation $\sum\limits_{j = 1}^4 {{p_j}}  = 1$, and $N_s$ represents the amount of population.
+
+\noindent \textbf{\emph{As to age:}}
+
+ Taking ten years as a unit, we divide the people into ten groups by how old he is, and then calculate the average income each group gets. On account of the assumption that, the more income one achieves, the greater value he possesses, the principle of sampling is set like that, the greater value one group possesses, the more persons are chosen in this group, which is indicated in the equation (\ref{age sample pop}):
+\begin{equation}\label{age sample pop}
+{p_j} = \frac{{{i_{tj}}}}{{{i_t}}}
+\end{equation}
+The ratio of the $j_{th}$ group is $p_j$, and the $i_t$ and $i_{tj}$ relates to the total income of the whole population and the the total income of one group. With the help of equation (\ref{age sample pop}), the number of each group in the sample is certain.
+
+After the treating process, the number of population in different cases, where the educational background and age differs, is unambiguous.
+
+\noindent \textbf{\emph{Process of sampling:}}
+
+Step 1: Divide the data in the dataset into five parts depending on the level of educational background in Task 1.
+
+Step 2: Figure out the number of population in each education level and age group, which is regarded as the upper limit in each case.
+
+Step 3: Generate a random number in one part, and judge which age group it belongs to.
+
+Step 4: Determine if the capacity of the age group is up to the upper limit. If so, regenerate a random number; If not, the random data is regarded as an effective sample.
+
+Step 5: Repeat Step 2 and Step 3 to fill each educational part and age group.
+
+The flow of the algorithm can be seen in the figure(\ref{fig:1})
+
+\begin{figure}[!h]%[!hptb] !h意思是忽略美学标准，将照片固定到此位置；不会上下浮动% 支持格式eps, pdf, png, jpg
+\centering %使得插入的照片居中显示
+\includegraphics[width=0.6\textwidth]{./Pic/fig1.png} %图片标题
+\caption{Sampling algorithm flowchart}
+\label{fig:1}       % 给图片一个标签便于交叉引用
+\end{figure}
+
+\section{Model construction}
+
+\subsection{Multiplex human social relationship network}
+
+Learning from the Local-world evolving network, describing the economic communication between counties, a multiplex network is utilized in the description of mutual relations. Then, we establish a multiplex human social relationship network based on the existing model. In the network, each node represents a person, and the sides between nodes show that there is some relation between the two persons, which can be relatives, friends, workmates and so on. In addition, everyone in the network lives not only in the complex world, but also in some local area, which is recognized to be formed by those nodes connecting with it. The algorithm building the network is that:
+
+\begin{enumerate}%[(1)] %分条列写
+\renewcommand{\labelenumi}{(\theenumi)}
+    \item Set $m_0$ nodes and $e_0$ sides in the initial state
+    \item At the $t_{th}$ step, a new node is inserted in the network. $M$ nodes are chosen in the exiting network, which consist of the local area of the new node, connected to $m$ sides ($m\leq M$). The ratio of prior connection is shown in the equation (\ref{proportion of sides})
+ \begin{equation}\label{proportion of sides}
+p({k_j}) = \frac{M}{{{m_0} + t}}\frac{{{k_j}}}{{\sum\limits_{{v_j} \in LW} {{k_j}} }}
+\end{equation}
+\end{enumerate}
+
+There are some special characters of the network that are of great value in the extension of the multiplex model.
+
+\begin{enumerate}%[(1)] %分条列写
+\renewcommand{\labelenumi}{(\theenumi)}
+    \item \textbf{\emph{Worldlet:}} \ Similar to 'Six Degree of Separation', the distance between two arbitrary nodes is finite.
+    \item \textbf{\emph{Node degree:}} \ Degree, describing how the node influences the whole network, is a basic parameter in the network topology. In this network, the degree implies relationships among the living circle.
+   \begin{displaymath}
+{C_d}({v_j}) = {k_j}
+\end{displaymath}
+Where $k_j$ is on behalf of the amount of nodes that connect with node $v_j$, which is called the degree of node $v_j$.
+    \item \textbf{\emph{Scale-free:}} \ As to scale-free network, the amount of some node degree is large, while some is small.
+    \item \textbf{\emph{Mediacy:}} \ It is the mediacy that measures how one node affects the information flow, on the basis of shortest path model. With the assumption that the network is made up with $N$ nodes, then the mediacy of the network can be shown by the equation (\ref{mediacy})
+ \begin{equation}\label{mediacy}
+{C_b}({v_j}) = \sum\limits_{s < t} {\frac{{{g_{st}}({v_j})}}{{{n_{st}}}}}
+\end{equation}
+In which, ${{g_{st}}({v_j})}$ symbolizes the number of the shortest paths between node $v_s$ and $v_t$ that pass the node $v_j$, and $v_{st}$ represents the total number of the the shortest paths between node $v_s$ and $v_t$.
+\end{enumerate}
+
+Integrating attributes of the network, we assume that the larger the node degree is, the more contribution one makes to the society, and the condition of mediacy is the same as node degree. The contribution function is structured:
+ \begin{equation}\label{evaluation contribution}
+f(j) = {\varpi _{j1}}{C_b}({v_j}) + {\varpi _{j2}}{C_d}({v_j})
+\end{equation}
+The Entropy method is used to figure out the coefficient $\varpi _{j1}$ and $\varpi _{j2}$.
+
+\subsection{based on deep confidence network}
+
+acquire income from some other elements
+
+
+
+\noindent \textbf{\emph{Population Development Model Based on Differential Equation}}
+
+The Utopia is similar to a country, in which the population changes over time. It is apposite to establish a continuous model on birth and death in the approach of time. In order to study the population of different ages, the distribution function $F(r,t)$ is continuous and differential. And the population density function is defined on the foundation of $F(r,t)$.
+ \begin{displaymath}\label{population density function}
+p(r,t) = \frac{{\partial F}}{{\partial t}}
+\end{displaymath}
+And $p(r,t)dr$ symbolizes the amount of people whose ages are among the interval $[r,r + dr]$. Similarly, the mortality rate is defined as $\mu (r,t)$. After theoretical deduction, the  first-order partial differential equation of population density is affirmatory.
+\begin{equation}\label{first-order partial of population density}
+\frac{{\partial p}}{{\partial r}} + \frac{{\partial p}}{{\partial t}} =  - \mu (r,t)p(r,t)
+\end{equation}
+In the equation (\ref{first-order partial of population density}), there are two knowable factors, birth rate $p(0,t)$ and mortality rate$\mu (r,t)$, that can be found by analyzing the Population Zero. Substituting the two factors into the equation, the solution is :
+\begin{equation}\label{age to home country}
+ p(r,t)=\left\{ \begin{array}{lr}
+    {p_0}(r,t){e^{ - \int_{r - t}^r {\mu (s)ds} }} & 0 \leq t < 5 \\
+     f(t - r){e^{ - \int_0^r {\mu (s)ds} }} & t > r
+    \end{array} \right.
+\end{equation}
+In the process, we set a time frame, where we start to track the transformation of population distribution. $t$ years later, the value of population density differs in the ages: the value is determined by the initial density of population as to the older, while the value is influenced by fertility status and mortality rate.
+
+\subsection{Social network partitioning based on Spectral bisection method}
+Spectral bisection method is a classic method for sectionalization. In our model, it is utilized to divided the population into two parts $G_1$ and $G_2$: one is made up of unskilled labor force, and the other is skilled labor force. The concrete flow of the method is stated:
+
+\noindent \textbf{\emph{Theoretical basis}}
+
+For dividing the network into several parts on the basis of comprehensive factors, the Spectral bisection method comes into service. What we need to do is to build a Symmetric Laplace matrix $L$ for undirected networks of $N$ nodes, whose diagonal elements $l_{ii}$ is the degree of node $v_i$, and other elements represents the relationship between node $v_i$ and node $v_j$: if there is a side between two nodes, then $I_q = 1$, otherwise, the value is 0. The minimum eigenvalues of matrix is 0, and the feature vector corresponding to the value is $l = {[1,1, \ldots ,1]^T}$. Meanwhile, other eigenvalues are equal approximately, which is the basis of Spectral bisection method.
+
+\noindent \textbf{\emph{Two general cases}}
+
+As to one case, a network is made up of $c$ independent communities, which have nothing to do with the others. Only among the community does the sides exit, and further, the matrix $L$ is of $c$ block diagonal matrixes. Each one of these is related to a community, and the minimum eigenvalues of it is 0.
+
+As to the other case, there are a few sides between two communities, which hardly influence the distinction of different groups. The eigenvalues, whose value is 0, is little or no. It is obvious to choose some close to 0. The linear combination of feature vectors is utilized to find the diagonal matrix blocks.
+
+\subsection{Analysis of the model}
+\subsubsection{Task 3: The best strategies}
+
+It is the income distribution and social welfare that the government get command of to maintain the equality. Through analysis, with the foregoing method for contribution, a fraction of people is of great contribution and a portion of people is of a little contribution, which may lead to income polarization. Thus, adjustment strategies following arise with the purpose of weakening the polarization. Our idea is to divide the social wealth into two parts. One part is used to ensure income distribution according to work, which means that one making more contributions deserves more income, and the other part is utilized to increase the support on those earns a little, who is likely to be of low labor capacity.
+
+\textbf{\emph{No 1: Minimum wage and salary distribution}}
+
+To build one-to-one correspondence between the node in the network and the individuality in Population Zero, the nodes are sorted by the value of equation (\ref{evaluation contribution}), and the individualities are by the equation (). After that, we endow the nodes in the network with concrete attributes of population. Broadly speaking, the revenue and the contribution are positively correlated. Paying attention to the fact that that one making more contributions deserves more income, an adjustment factor $d(i)$ is added in the model, with which if one contributes little, his income will be lower than the value he deserves; and if one contributes a lot, his revenue will match the value he deserves.
+\begin{displaymath}
+d(i)=\left\{ \begin{array}{lr}
+    2 - {e^{ - i}} & 0 \leq i \leq 1 \\
+     0 & i < 0
+    \end{array} \right.
+\end{displaymath}
+By this, the ideal income distribution is set for each person in Population Zero:
+\begin{equation}
+ I(j) = f(j){I_0}(j)d({I_0})
+\end{equation}
+Where $I_0$ represents the practical income.
+
+\textbf{\emph{No 2: Paternity/maternity leave}}
+
+Paternity/maternity leave influence not only the happiness of women practitioner but also the sustainability of the whole human society. With the combination of equation(\ref{happiness of women equ}), birth rate, which has close connection with the happiness of women, is paid attention to attention. When the female is willing to have children, the birth rate increases; if not, the rate decreases.
+\begin{equation}
+ h({d_w},{d_m})={\alpha(p(0,t))}[{\varpi _{11}}h({d_w}) + {\varpi _{12}}h({d_w})h({d_m})] - [{\varpi _{21}}p({d_w}) + {\varpi _{22}}p({d_m})] + a
+\end{equation}
+
+\textbf{\emph{No 3: Childcare}}
+
+When it comes to childcare, the government serves in two ways: one is the level of free education, and the other is the allowance for the growth of person. The total subsidy is composed by the expenses that the government cost for the free education and the allowance for the birth of baby. Assuming that the compensation for a newborn is $A$ dollars, the number of the newborn is $n_{c}$ and the birth rate is $\alpha$, the government compensates $An_{c}$ dollars for the fertility.
+
+In addition, educational background has been divided into 5 levels in Task 1, and the relative injectant differs from each other: the free education for primary school is $E_1$, similarly, the secondary school, university and the higher is $E_2$, $E_3$ and $E_4$. The total compensation for a person is $(A + {E_i}){n_c}$ dollars, and the average compensation in each year educated is ${{(A + {E_i}){n_c}} \mathord{\left/
+ {\vphantom {{(A + {E_i}){n_c}} {{e_l}}}} \right.
+ \kern-\nulldelimiterspace} {{e_l}}}$. As to the subsidy, people's happiness of it is similar to the income evaluating function, which is expressed in equation (\ref{income equ}).
+
+We assume that, if the free education advances for one level above, there are $n_{c}$ persons whose educational background improves one level. Then, the income is figured out by the neural networks, comparing with the value which is worked out without improving the level of free education. By comparing the difference between the values and the average compensation, the worth of allowance is clear.
+
+\textbf{\emph{No 4: Relationship among the three identified factors}}
+
+In a word, the three factors(income, education and equality) restrict each other in separate cases.
+
+\begin{figure}[!h]%[!hptb] !h意思是忽略美学标准，将照片固定到此位置；不会上下浮动% 支持格式eps, pdf, png, jpg
+\centering %使得插入的照片居中显示
+\includegraphics[width=0.65\textwidth]{./Pic/relationship.png} % 图片标题
+\caption{Critical independencies among the three parameters}
+\label{Relationship between the factors}       % 给图片一个标签便于交叉引用
+\end{figure}
+
+
+\subsubsection{Task 4: Operations of subgroups}
+
+\noindent \textbf{\emph{Evaluation of individuality and subgroup}}
+
+After the population has been sectionalized into two groups, we establish a satisfaction model, of some new parameters which evaluate the priority in their life, to appraise the happiness of lives. Focused on one individual person, five attributes(income, educational background, childcare expenses, level of free education and maternity/paternity leave) are involved in the satisfaction model. To unify the dimension, each parameter ought to be normalized.
+%这个加了左边的大括号，只有一个编号
+\begin{displaymath}
+  \left\{
+   \begin{aligned}
+   x_{n1} &=[{{I(j) - I{{(j)}_{\min }}]} \mathord{\left/
+ {\vphantom {{I(j) - I{{(j)}_{\min }}]} {[I{{(j)}_{\max }}}}} \right.
+ \kern-\nulldelimiterspace} {[I{{(j)}_{\max }}}} - I{(j)_{\min }}]  \\
+    x_{n2} &=[{{{l_e}(j) - {l_e}{{(j)}_{\min }}]} \mathord{\left/
+ {\vphantom {{{l_e}(j) - {l_e}{{(j)}_{\min }}]} {[{l_e}{{(j)}_{\max }}}}} \right.
+ \kern-\nulldelimiterspace} {[{l_e}{{(j)}_{\max }}}} - {l_e}{(j)_{\min }}] \\
+    x_{n3} &= {A \mathord{\left/
+ {\vphantom {A {{{(1} \mathord{\left/
+ {\vphantom {{(1} 5}} \right.
+ \kern-\nulldelimiterspace} 5}) \cdot \widetilde {I(j)}}}} \right.
+ \kern-\nulldelimiterspace} {{{(1} \mathord{\left/
+ {\vphantom {{(1} 5}} \right.
+ \kern-\nulldelimiterspace} 5}) \cdot \widetilde {I(j)}}}  \\
+    x_{n4} &= [{{i - {i_{\min }}]} \mathord{\left/
+ {\vphantom {{i - {i_{\min }}]} {[{i_{\max }}}}} \right.
+ \kern-\nulldelimiterspace} {[{i_{\max }}}} - {i_{\min }}]  \\
+    x_{n5} &= {\varpi _{11}}h({d_w}) + {\varpi _{12}}h({d_w})h({d_m})  \\
+   \end{aligned}
+   \right.
+\end{displaymath}
+
+How much each parameter works on the satisfaction of one person is reflected from the weight separately. Meanwhile, the rank of the weights are regarded as the priority of the parameters. Based on the social psychology that human live in groups and the attribute of his group affect his acknowledge, when a person lives in the environment where others earn a lot of money, he is hardly content with limited revenue. When it comes to the other parameters, the thought is a basis guiding the elementary establishment of the model.
+%这个加了左边的大括号，只有一个编号
+\begin{displaymath}
+  \left\{
+   \begin{aligned}
+    {w_{k1}} &=\frac{{\frac{1}{{{N_1}}}\sum\limits_{j \in {G_1}} {f(j)}  + \frac{1}{{{N_2}}}\sum\limits_{j \in {G_2}} {f(j)} }}{{\frac{1}{{{N_k}}}\sum\limits_{j \in {G_1}} {f(j)} }}  \\
+   {w_{k2}} &=\frac{{\frac{1}{{{N_1}}}\sum\limits_{j \in {G_1}} {{l_e}(j)}  + \frac{1}{{{N_2}}}\sum\limits_{j \in {G_2}} {{l_e}(j)} }}{{\frac{1}{{{N_k}}}\sum\limits_{j \in {G_1}} {{l_e}(j)} }} \\
+   {w_{k3}} &=\frac{{I{{(j)}_{\min }} + I{{(j)}_{\max }}}}{{I(j) - I{{(j)}_{\min }}}} \\
+   {w_{k4}} &=\frac{{{l_e}{{(j)}_{\max }} - {l_e}{{(j)}_{\min }}}}{{{l_e}(j) - {l_e}{{(j)}_{\min }}}} \\
+   {w_{k5}} &=\frac{{I(j)}}{{I{{(j)}_{\max }} - I{{(j)}_{\min }}}} \\
+   \end{aligned}
+   \right.
+\end{displaymath}
+Then, the satisfaction of one resident is defined as:
+\begin{equation}
+   S(j) = v_{k1}{x_{n1}} + v_{k2}{x_{n2}} + v_{k3}{x_{n3}} + v_{k4}{x_{n4}} + v_{k5}{x_{n5}}
+\end{equation}
+In which, the weights are normalized by the equation \begin{math} {v_{ki}} = \frac{{{w_i}}}{{\sum\limits_z {{w_z}} }}  \end{math}. The satisfaction of the group is defined as the average of the individualities'.
+\begin{equation}
+   {S_k} = \frac{1}{{{N_k}}}\sum\limits_{j \in {G_k}} {S(j)}
+\end{equation}
+
+\noindent \textbf{\emph{Majorization design for the greatest outcome}}
+
+According to the foregone model, unskilled workforce is not satisfied with the income, meanwhile, the skilled practitioners pay more attention to the maternity and paternity leave.
+
+To improve the satisfaction of the former, we decide to slightly enlarge the proportion of redistribution among the social wealth.
+
+To ameliorate the latter, a method called 'partial paid maternity' is built. In which, if the length is shorter than the threshold, the holiday is paid by the company; however, when the length is longer, the original revenue of the work is deducted, and the amount is $\zeta$ times as many as the earnings. $\zeta$ is a function of time $t$:
+\begin{displaymath}
+   \zeta=\left\{ \begin{array}{lr}
+     0& 0 < t < a\\
+     \frac{1}{{m - a}}(t - a) &  a \leq t  < m
+    \end{array} \right.
+\end{displaymath}
+Where $a$ represents the maximum length of the paid holiday. There are two extreme conditions as to the distribution of $\zeta$: one is that the maternity is considered as paid-leave when the length is shorter than $a$, and the other is that the deduction of earnings is up to original income. Without significantly reducing the global outcomes, traversal method is utilized to achieve the maximum gross national income after the trial of all the combination of $a$ and $m$, where we assume that the concrete gross national income is higher than 99 percentage of the original value.
+
+\section{Error/Sensitivity Analysis}%误差/灵敏度分析
+
+\subsection{Task 5: Additional migration}
+The demographic distribution of this population is changed by the new migration in a sudden, particularly in the distribution of age, educational background and gender.
+
+As to age, when the immigrants arriving, some changes take place on the distribution of age. However, two requirements are needed to meet:
+\begin{enumerate}%分条列写
+\renewcommand{\labelenumi}{(\theenumi)}
+    \item \textbf{Avoiding the aging of the population:} \ The percentage of those whose age is greater than 60 years old account for 10\% and those elder than 65 years old occupy 7\%.
+    \item \textbf{Guaranteeing adequate workforce:} \ The number of the youth whose age is between 25 to 45 years old is enough to create sufficient fortune in order to ensure the operation of the society.
+\end{enumerate}
+
+The population development equation is used to predict the distribution of age among the population. We assume that three migrations come up during 2100 to 2200 which is in 2130,2160 and 2190. Take the migration in 2130 as an example, the distribution of age is figured out on the basis of equation(\ref{age to home country}):
+
+The outcome shows that the aging of the population occur. The LIFE ought to encourage the birth of babies by improving the compensation for newborn and extend the maternity and paternity leave.
+
+\subsection{Task 6: A much larger scale migration}
+
+\section{Model Extension}%模型推广
+
+
+
+
+
+
+
+\section{Strength and weakness}%同理
+\subsection{Strength}
+\begin{enumerate}%[(1)] %分条列写
+\renewcommand{\labelenumi}{(\theenumi)}
+    \item the first assumption
+    \item the second assumption
+    \item the
+    \item th
+    \item
+\end{enumerate}
+\subsection{Strength}
+\begin{enumerate}%[(1)] %分条列写
+\renewcommand{\labelenumi}{(\theenumi)}
+    \item the first assumption
+    \item the second assumption
+    \item the
+    \item th
+    \item
+\end{enumerate}
+
+\section{Task 7: Policy recommendation}
+
+%以下是参考文献
+\phantomsection% 生成该页的链接
+\addcontentsline{toc}{section}{\refname}
+\begin{thebibliography}{}
+%
+% 使用指令\bibitem 构造一条参考文献.
+% 具体构造方式，参考以下参考文献格式说明以及示例
+% 应尽可能使用英文格式
+%
+\bibitem{RefJ}
+% 期刊引用格式
+    % 中文的引用格式
+    % 作者. 标题[J].期刊名, 发表年份,  卷号(期号), 页码
+    % Author. Article title[J]. Journal name, year, Volume(issue), page numbers.
+    % 姓，名字首字母.(年). 题目. 期刊名(斜体), 卷号(期号), 页码.
+    Last name, Initials. (year). Title.\emph{The journal name}. Volume(Issue), pages.
+    %或者 Last name, Initials.,& Last name, Initials. (year). Title.\emph{The journal name}. Volume(Issue), pages.
+
+\bibitem{RefJ}
+% 期刊引用格式
+    % 中文的引用格式
+    % 作者. 标题[J].期刊名, 发表年份,  卷号(期号), 页码
+    % Author. Article title[J]. Journal name, year, Volume(issue), page numbers.
+    % 姓，名字首字母.(年). 题目. 期刊名(斜体), 卷号(期号), 页码.
+    Last name, Initials. (year). Title.\emph{The journal name}. Volume(Issue), pages.
+    %或者 Last name, Initials.,& Last name, Initials. (year). Title.\emph{The journal name}. Volume(Issue), pages.
+
+\bibitem{RefB}
+% 书本/专著引用格式
+    % 中文的引用格式
+    % 作者名. 书名[M]. 出版地: 出版社, 出版年份: 页码.
+    % Author. Book title[M]. Address: Publisher, year: page numbers.
+    % 英文引用格式
+    % 姓, 名字首字母.(年). 书名(斜体). 出版社所在城市: 出版社.
+    Last name, Initials. (year). \emph{Book name}. Address: Publisher.
+
+\bibitem{RefC}
+% 文集中的文章
+    % 英文引用格式
+    % 姓, 名字首字母. (年). 文集名, 文章名(pp.页码). 出版地: 出版社
+    Last name, Initials. (year). Collection name, \emph{Article name}(pp.pages). Address: Publisher.
+
+% 学位论文引用格式(英文里等同于专著引用)
+\bibitem{RefD}
+Author. Article Title[D]. Address: Saver, year: page numbers.
+% 网络引用（百科，博客等）
+\bibitem{RefI}
+The site name, Title. The Site Link. Time.
+% 电子文献
+\bibitem{RefE}
+The main responsibility author. Electronic document titles. Electronic literature source[Symbol]. Site Link, Publish or update date / date references.
+
+% etc
+\end{thebibliography}
+
+
+
+
+
+
+\end{document}

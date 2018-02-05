@@ -1,0 +1,689 @@
+\documentclass[a4paper,12pt]{article}
+%ÔÚ´Ë¿É½øÐÐÒ³ÃæÉèÖÃ
+%\textwidth=14cm
+%\textheight=22cm
+
+\usepackage[82550]{MCMPackage}  
+\usepackage{float}
+% ¶ÓºÅÔÚÕâÀïÌîÐ´
+%\usepackage[XXX,nosheet]{MCMPackage}% Õâ¸ö²ÎÊýÐÎÊ½¿ÉÈ¥µôsummary sheet Ê×Ò³¡£
+\problem{C}  % Ñ¡Ìâ
+
+\title{Simulation Utopian: an evolving model based on the Multiplex Network and Deep Learning }% ÔÚ´Ë²åÈëÂÛÎÄ±êÌâ
+\date{}
+
+%ÉèÖÃ¶ÎÂäÖ®¼äµÄ¾àÀë£¬Èô²»ÐèÒªÉ¾³ý»òÕß×¢ÊÍµô¼´¿É¡£
+\setlength\parskip{.5\baselineskip}
+
+%ÎªÁËÊ×ÐÐËõ½ø
+%\usepackage{indentfirst}
+%\setlength{\parindent}{2em}
+
+\begin{document}
+	%ÕªÒª
+	\begin{abstract}
+		In order to design an economic-workforce-education system for migration on Mars, our idea is to establish a comprehensive model with plentiful properties of nodes which are consistent with the current states.
+		
+		As to Task 1 \& 2, for the sake of measuring the happiness of residents, we set up an evaluation system made up of three priority parameters(income,education and social equality). Having considered the differences between fields, the \textbf{ideal distribution} function is founded in separate fields. \textbf{Pearson correlation coefficient} is utilized to describe how the practical distribution is relative to the ideal, and the better correlation it indicates, the better the actual distribution is. On the basis of the analysis in Task 1, we generate a sample population of 10,000 people for migration from the \textbf{PUMS dataset}. The sampling algorithm focusing on the educational background and age, takes a group as a unit which is of maximum capacity.
+		
+		When solving the Task 3 \& 4, based on the parameters defined in Task 1, we establish \textbf{Multiplex human social relationship network } to depict the dynamic process that the human society develops. The connection of the actual situation and the network is set up under the assumption that the node degree and mediacy in the network reflect the contributions one makes. To predict this economic parameter, an idea is proposed to study the independencies other parameters serve through \textbf{Deep Learning}. After that, the \textbf{population development model based on differential equation} is utilized to describe the dynamic changes in population demographics with the variation of time. We divide the Population Zero into two groups(skilled and unskilled labor force) by virtue of\textbf{ Spectral Bisection Method}.
+		
+		When it comes to Task 5 \& 6, we verify the accuracy and stability of our model by changing the population size and migration process. Taking the satisfaction as the ultimate goal, we study the sensitivity with \textbf{Times Series Model}. The result shows that the model is hardly affected by the size of population.
+		
+		Integrating the models and analysis, we come up with a policy recommendation addressed to the director of LIFE, containing the policies, sensitivity and the expecting results.
+		
+		\noindent \textbf{Keywords: Multiplex human social relationship network; Pearson correlation coefficient; Spectral bisection method; Deep learning; Times Series Model}
+	\end{abstract}
+	\maketitle%²åÈë±êÌâ
+	\thispagestyle{empty}% ±¾Ò³²»±éÒ³Âë
+	
+	\newpage%ÁíÆðÒ»Ò³²åÈëÄ¿Â¼
+	\thispagestyle{empty}% ·ÀÖ¹Ä¿Â¼Á½Ò³¶ø³öÏÖÒ»Ò³´øÒ³Âë
+	\tableofcontents% Ä¿Â¼
+	\thispagestyle{empty}
+	\newpage%ÁíÆðÒ»Ò³ÊéÐ´ÕýÎÄ
+	\pagenumbering{arabic}% ¿ªÊ¼±àÒ³Âë£¨°¢À­²®Êý×Ö£©
+	\section{Introduction}
+	
+	%\cite{RefB}.% ÒýÓÃ²Î¿¼ÎÄÏ×
+	
+	%\subsection{Background}  % Ð´±³¾°¿ÉÓÐ¿ÉÎÞ
+\subsection{Background}% ±³¾°
+	Complex network has received considerable attention in the last few years, which become hot spots in network science and frontiers of research. It abstracts a large and complex system that really exists in nature into a network composed of nodes and edges. Also, cooperative network is an important research area of complex network, which is the expansion and research of social networks.
+	In addition, one of the earliest studied cooperate network is co-author network, which characterizes the cooperate relationship between researchers. 
+	
+	One of the techniques to determine influence of academic research is to build and measure properties of citation or co-author networks. Co-authoring a manuscript usually connotes a strong influential connection between researchers. Paul Erdos is the most famous academic co-authors who had over 500 co-authors and published over 1400 technical research papers. In order to measure such influence as Erdos produced, there are network-based evaluation tools that use co-author and citation data to determine impact factor of researchers, publications, and journals. 
+	
+	Therefore, our goal is to analyze the influence and impact in research networks and other areas of society. Thus, it would be much easier to improve the relationship between individuals, organizations, and countries.
+	
+	
+	
+	\subsection{Problem restatement and analysis}% ÕâÒ»²¿·ÖÐ´ÎÊÌâ·ÖÎöÒÔ¼°ÎÒÃÇÒª½â¾öµÄÎÊÌâ
+	For Task 1, we are required to build a co-author network of the 510 researchers from the file Erdos1. Then limit the size of our network. Afterwards, analyze the properties of the network. 
+	
+	Task 2 asks us to develop influence measures to determine who in this Erdos1 network has significant influence within the network. Consider who has published important works or connects important researchers within Erdos1. 
+	
+	As for Task 3, how to compare the significance of a research paper is of great importance. we can get conclusion by analyzing the important works that follow its publication. We are asked to build the influence networks and calculate appropriate measures for analysis. Then, we can find the most influential papers in network science. Since our model is established, we should compare our model with other models. Last, consider if our model can be appied to measure the role of a specific university, department, or a journal in network science.
+	
+	In regard to Task 4, we are asked to implement our algorithm on a completely different set of network inluence data. we can choose from infuential songwhiters, music bands, performers, movie actors and so on to analyze. In order to analyze the influence more conviniently, we should restrict the network to a specific genere or geograpghic location or predetermined size. 
+	
+	As to Task 5, we ought to discuss the science, understanding and utility of modeling influence and impact within networks.
+	
+	In addition, sensitivity analysis is carried out to test our moedl.
+	\section{Assumption}% ÕâÀïÐ´Ä£ÐÍ¼ÙÉè
+	\begin{itemize}
+		\item The influence of nodes whose degrees are less than 3 are small, and thus they can be pruned by K-Shall algorithm
+		\item The influence of papers in the Erdos1 is powerful. And the authors of these papers have compact association with each other.
+		\item The influence of a paper is not only related to its citation situation but also the influence of the citing paper.
+		\item The actors who cooperate with Jackie Chen include all Chinese actors. 
+		\item The data obtained by Python is correct.
+	\end{itemize}
+	
+	\section{Symbol Description}% ·ûºÅËµÃ÷
+	In this section, we use some symbols for constructing the model as follows:
+	\begin{center}% ¾ÓÖÐ
+		\begin{tabular}{p{2cm}<{\centering} p{12cm}<{\centering}}%r 
+			\toprule[2pt]
+			\textbf{Symbol} & \makecell[c]{\textbf{Description}}\\ % ¼Ó´ÖÖ¸ÁîÎªtextbf{}
+			\hline   %cline¿ÉÔÚÖ¸¶¨ÁÐÉÏÏÂÌí¼ÓºáÏß
+			%¸ñÊ½Îª  Ã¿ÐÐµÚÒ»ÁÐ&Ã¿ÐÐµÚ¶þÁÐ\\
+			$E$ &  Efficiency   \\
+			$h$ & Co-mean distance \\
+			${V_i}$ & Vulnerability \\
+			$EC$& Clusting Coefficient \\
+			${C_d}(v)$& Node degree \\
+			${C_b}({v_i})$& Betweenness \\
+			${C_c}({v_i})$ &  Compactness \\
+			${D_{ij}}$ & Degree of dependency from node to node \\
+			${D_{i,{C_k}}}$ & Degree of dependency from node to community\\
+			${v_j}$ & Dependent node \\
+			${D_{im,{C_k}}}$ &Conditional dependence of node to community \\
+			$f({v_i})$ &  The total influence of a node   \\
+			\bottomrule[2pt]  %µ×±ß¿òÏß¿í¶È
+			%ÒÔÏÂÁ½ÌõÖ¸Áî´Ë´¦²»ÓÃ
+			%\caption{±í¸ñ±êÌâ}
+			%\label{±êÇ©Ãû}%±ãÓÚ½»²æÒýÓÃ
+		\end{tabular}
+	\end{center}
+	P.S: Other symbol instructions will be given in the text.
+	
+	\section{Preparation for Model}
+	In this section, our goal is to build the co-author network of the Erdos 1 authors and analyze the properties of this network. 
+	\subsection{Task 1:Construction of the Co-author Network }
+	Here, the co-author network is introduced to characterize the cooperative relationship between researchers. In this network, each researcher is considered as a node, and the edges connecting two nodes represent their cooperation. More specifically, if two researchers have jointly published a research paper, there is an edge connecting the two nodes. Thus, a complex network composed with researchers is formed, also known as co-author network.
+	
+	In more detail, we discuss the specific process of constructing the co-author network. The definition of the co-author network is $G = (V,E)$ , where $V = \{ {v_1},{v_2},...,{v_n}\}$ represents the researchers who once cooperated with Erdos,$E = \{ {e_1},{e_2},...,{e_m}\} $ stands for the relationship between two researchers. In addition, we define the adjacency matrix in the network $G$, $A(G) = ({a_{i,j}})$ , where ${a_{i,j}} = \left\{ \begin{array}{l}
+	1\;,\;({v_i},{v_j}) \in E(G)\\
+	0\;,\;({v_i},{v_j}) \notin E(G)
+	\end{array} \right.$ . If the network is acyclic, the sum of each row in the adjacency matrix is the degree of the vertex corresponding to the row. 
+	
+	First, we number the 510 researchers who coauthored a paper with Erdos, but do not include Erdos. Then, we build the co-author adjacency matrix, within which the volume is one or zero, depending that if there was a co-author between two authors. For simplicity, we give the assumption in advance that there is no priority of authors in a paper, since the co-operation between multiple authors in the same article is fully connected. Therefore, we obtain the co-author adjacency matrix. The sample of it is list below.
+	
+	\begin{table}[htbp]
+		\centering
+		\caption{The sample of co-author adjacency matrix.}
+		\begin{tabular}{rrrrrrrrr}
+			\toprule
+			column&  497  &  498 &  499 &500 & 501 &  502 &  503 \\
+			\midrule
+			\multicolumn{1}{c}{line 4} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{1}& \multicolumn{1}{c}{0}& \multicolumn{1}{c}{0}& \multicolumn{1}{c}{0}& \multicolumn{1}{c}{0}& \multicolumn{1}{c}{1} \\
+			\multicolumn{1}{c}{line 5} & \multicolumn{1}{c}{0} & \multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0} \\
+			\multicolumn{1}{c}{line 6}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0} \\
+			\multicolumn{1}{c}{line 7}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0} \\
+			\multicolumn{1}{c}{line 8}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{1} \\
+			\multicolumn{1}{c}{line 9}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{1} \\
+			\multicolumn{1}{c}{line 9}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}&\multicolumn{1}{c}{0}\\
+			\bottomrule
+		\end{tabular}%
+		\label{tab:ability}%
+	\end{table}%
+	As we can see in this table above, the value of column 9 in line 497 is zero, which means the No.9 researcher did not coauthor a paper with No.497 researcher. While the value of column 10 in line 497 is one, which represents No.10 researcher coauthored a paper with No.497 researcher.
+	
+\begin{itemize}
+	\item \textbf{limit the size of the co-author network}
+\end{itemize}
+	In order to calibrate our influence measurement algorithm, we are going to limit the size of the co-author network. Indeed, we introduce the K-Shell algorithm to obtain the fitting co-author network by pruning isolated nodes and weak connected codes.
+	
+	K-Shell algorithm put forward a coarse-graining division of the importance of nodes in the network, which is represented by  . The K-Shell of nodes at the edge in this network is 1, then we enter the core of network layer by layer like peeling the onion. More specifically, we move all the nodes and their edges whose degrees are less than k in the beginning. Then, if there are still nodes whose degrees are less than k, continue moving them, until the degrees of all the remaining nodes in the network are less than k. Therefore, we gain the fitting co-author network with K-Shall algorithm by changing k from 1 to n. The division schematic diagram are shown below.
+	
+\begin{figure}[htbp]
+	\centering
+	\begin{center}
+		\includegraphics[width=6cm]{./figure/k-shell.png}
+		\caption{K-Shall division schematic diagram}
+		\label{fig:occupation}
+	\end{center}
+\end{figure}
+For example, in the figure 1 above, the biggest degree of nodes is 7. However, as original node, the range of its spreading is not the most extensive for sure, since the degrees of its neighbor nodes are all small. That is to say, the influence depends on not only the node itself but also its neighbor nodes beside it. 
+
+On the basis of analysis above, we set that k is equal to three, and use 3-Shell algorithm to fit the co-author network. For the sake of showing the overall co-author relationship among researchers and the fitting network, we use MATLAB and d3 framework draw two diagrams in figure 2.
+\begin{figure}
+\begin{minipage}[H]{0.5\linewidth}
+	\centering
+	\includegraphics[width=6.5cm]{./figure/0_shell.pdf}
+	\caption{The co-author network before}
+	\label{fig:side:a}
+\end{minipage}%
+\begin{minipage}[H]{0.5\linewidth}
+	\centering
+	\includegraphics[width=6cm]{./figure/4_shell.pdf}
+	\caption{The fitting network after pruning}
+	\label{fig:side:b}
+\end{minipage}
+\end{figure}
+
+From figure 2 and 3, it is obvious that this co-author network is a non-connected graph, since there are some researcher did not coauthor a paper with other researchers in this network except for Erdos. Thus these people are isolated nodes in this network.
+\subsection{Properties of the Co-author Network}
+	
+	Since the fitting co-author network is gained, we analyze the properties of this network.
+	
+	\noindent \textbf{\emph{(1)Efficiency}}
+	
+	 we define efficiency to measure the ease of average traffic on the network. The efficiency can be shown by the equation(1).
+	 \begin{equation}
+	  E = \frac{1}{{N(N - 1)}}\sum\limits_{i \ne j} {\frac{1}{{{d_{ij}}}}}
+	 \end{equation}
+	\textit{where ${d_{ij}}$ represents the distance between node i and node j. The distance can be calculated according to co-authorship of nodes among node i and node j.}
+
+	\noindent \textbf{\emph{(2)Co-mean Distance}}
+	
+	There is a problem within the definition of efficiency. If a network is a disconnected graph,  disconnected nodes will diverge the definition. Indeed, both movie actors cooperation network and co-author network are disconnected to great extent. In order to solve the problem, we define the co-mean distance $h$.
+	 \begin{equation}
+	 	 h = \frac{1}{E}
+	 \end{equation}
+
+	
+	\noindent \textbf{\emph{(3)Vulnerability}}
+	
+	Vulnerability plays an important role in describing the actual transmission network. The vulnerability of one node is defined like this.
+	\begin{equation}
+	{V_i} = \frac{{E - {E_i}}}{E}
+	\end{equation}
+	\textit{where ${E_i}$ represents the efficiency of network after node i is taken away from the network.}
+	
+	\noindent \textbf{\emph{(4)Clusting Coefficient}}
+	
+	Clusting coefficient shows the proportion in the case that the neighbors of the nodes are also adjacent to each other. namely, it describes the perfect degree in the construction of small group. The clusting coefficient can be calculated by the formula (2).
+	\begin{equation}
+	EC = \frac{{3{N_\Delta }}}{{{N_3}}}
+	\end{equation}
+	\textit{in which, ${N_\Delta } = \sum\limits_{k > j > i} {{a_{ij}}{a_{jk}}{a_{ik}}} $ represents the number of three-connected graphs.}
+	
+	After finishing the definition of four indexes, the properties of the co-author network can be elucidated by figure 4.
+	
+	\begin{figure}[htbp]
+		\centering
+		\begin{center}
+			\includegraphics[width=15cm]{./figure/zhexian.png}
+			\caption{K-Shall division schematic diagram}
+			\label{fig:occupation}
+		\end{center}
+	\end{figure}
+
+As we can see in figure 4, the mean degree of nodes is greater and greater with the increase of k. This illustrates that the remaining researchers are the cores of the network. When it comes to the vulnerability, it becomes greater when $k$ is increasing, which represents the final network is unstable when any node is taken away. Indeed, 4-shell is excellent in every property. Therefore , it is the best choice as the fitting algorithm to build the model of co-author network.
+	\section{Model Construction}
+	
+	\subsection{Task 2 : the KSC Index Influence Model}
+	
+	In this section, we are asked to determine who has significant influence within the network. As for the study of influence in the complex network recently, the indexes which are degree of node, compactness, and betweenness are usually applied to evaluate the influence. This method is simple but it has low accuracy and applicability, since it only takes internal attribute into account. In order to solve this problem, we introduce the KSC (K-Shall and Community Centrality) Index Influence Model, which not only considers the internal attribute but also the external attribute. Then we use the data from the Erdos 1 file to determine the most significant researchers.
+	
+\subsubsection{the internal attribute : the Centering Influence Model}
+	\begin{enumerate}
+	\renewcommand{\labelenumi}{(\theenumi)}
+	\item  \textbf{Node degree}
+		
+The degree of centralization describes the direct influence made by mode within a static network. The degree of node v implies the number of nodes connected with node v.
+		\begin{equation}
+		{C_d}(v) = d(v)
+		\end{equation}
+		\textit{Where $d(v)$ stands for the degree of this node.}
+
+\item \textbf{Betweenness}
+
+The betweenness of centralization depicts influence of node on information flow. And the betweenness can be shown by the equation (6).
+\begin{equation}
+{C_b}({v_i}) = \sum\limits_{s \ne t \ne {v_i}} {\frac{{{h_{st}}({v_i})}}{{{h_{st}}}}} 
+\end{equation}
+\textit{Where ${h_{st}}$ represents the number of shortest path from source node $s$ to destination node $t$. ${h_{st}}({v_i})$  stands for the number of shortest path from source node s to destination node $t$ but goes through node $v$.}		
+	
+\item \textbf{Compactness}
+
+Compactness characterizes the complexity from one node to other nodes, which can be illustrated by equation (7).
+\begin{equation}
+{C_c}({v_i}) = \frac{{N - 1}}{{\sum\limits_{j \ne i} {{d_{ij}}} }}
+\end{equation}
+	\end{enumerate}
+
+The three indexes, node degree, betweenness, and compactness will generate three ranks about the influence of node. Thus, we need to determine a comprehensive sort to measure influence, combining the three sorting orders above. Therefore, the Kendall correlation coefficient is introduced to measure the consistency of every two sorting orders. The Kendall correlation coefficient is defined as
+\begin{equation}
+\tau (X,Y) = \frac{{C - D}}{{(1/2)n(n - 1)}}
+\end{equation}
+\textit{Where $C$ represents the number of consistent element pairs in any two element pairs of $XY$. $D$ stands for the number of element pairs that are not consistent in XY.The value of $\tau $ ranges from -1 to -1. When $\tau $ is 1, it is considered that the two sequences are completely positive correlation, $\tau $ is not correlated when 0 is taken, and negative correlation is obtained when $\tau $ is -1.}
+
+Then, we calculate the correlation coefficients of three sorting orders, and presents them below.
+
+\begin{table}[htbp]
+\centering
+\caption{The three Kendall correlation coefficients}
+\begin{tabular}{cccc}
+	\toprule
+	 &${\tau _{db}}$ &${\tau _{dc}}$&${\tau _{bc}}$\\
+	\midrule
+	\multicolumn{1}{c}{Value}&\multicolumn{1}{c}{0.7607}& \multicolumn{1}{c}{0.78048}&\multicolumn{1}{c}{0.70953}\\
+	\bottomrule
+\end{tabular}%
+\label{tab:ability}%
+\end{table}%
+
+As we can see in table 2, all of three correlation coefficients are greater than 0.7, which means the relationship among them is tight. What's more, all of three index, node degree, betweenness, and compactness, have positive correlation with node's influence. Therefore, we can establish the Internal Influence Model.
+
+\begin{equation}
+{f_{internal}}({v_i}) = \frac{{{\tau _{bc}}}}{{{\tau _{db}} + {\tau _{dc}}}} \cdot \frac{{{C_d}({v_i})}}{{{C_d}{{({v_i})}_{\max }}}} + \frac{{{\tau _{dc}}}}{{{\tau _{db}} + {\tau _{bc}}}} \cdot \frac{{{C_b}({v_i})}}{{{C_b}{{({v_i})}_{\max }}}} + \frac{{{\tau _{db}}}}{{{\tau _{bc}} + {\tau _{dc}}}} \cdot \frac{{{C_c}({v_i})}}{{{C_c}{{({v_i})}_{\max }}}}
+\end{equation}
+\textit{Where ${C_d}({v_i})$ represents the degree of node $i$ .  ${C_b}({v_i})$ stands for the betweenness of node $i $, while ${C_c}({v_i})$  means the compactness of node $i$.}
+
+\subsubsection{the external attribute: the Community Division Influence Model}
+There are some nodes within the network, among which the correlation is more compact relatively. While some of them are parse connected with other nodes. These nodes make up a community. As for this co-author network, these researchers who only coauthor papers with people in their community actually cannot be considered very influential. On the contrary, researchers who coauthor papers with people both inside and outside the community can be described as influential. We draw figure 5 to show this situation vividly.
+\begin{figure}[htbp]
+	\centering
+	\begin{center}
+		\includegraphics[height=7.2cm]{./figure/division.png}
+		\caption{\textit{The figure shows there two types of researchers in the community. The ones are less influential because they only are connected with people within the community. While the others are more influential since they are also associated with people outside the community.}}
+		\label{fig:occupation}
+	\end{center}
+\end{figure}
+
+Therefore, we establish \textbf{the Community Division Influence Model}, in order to characterize the influence of community, and determine the impact from community to the researchers within the community.
+
+First, we need to divide the researchers in the current co-author network into communities. Through Observing large experiments, we find that the division of one node depends on its neighbor nodes. Therefore, we define four indexes as reference index of division.
+
+\begin{itemize}
+	\item \textbf{Degree of dependency from node to node}
+	
+	The degree of dependency of node $i$ to its neighbor node $j$ is defined below.
+	\begin{equation}
+	{D_{ij}} = \frac{{{n_{ij}} + 1}}{{d({v_i})}}
+	\end{equation}
+	\textit{Where ${n_{ij}}$ represents the common neighbor nodes of node $i$ and node $j$. $d({v_i})$  stands for the degree of node $i$ .}
+	\item \textbf{Degree of dependency from node to community}
+	
+	We define the degree of dependency from node to community.
+	\begin{equation}
+	{D_{i,{C_k}}} = \frac{{{n_{i,{C_k}}}}}{{d({v_i})}}
+	\end{equation}
+	\textit{Where ${n_{i,{C_k}}}$ stands for the neighbor nodes of node $i$ in the community ${C_k}$  .}
+	
+	\item \textbf{Dependent node}
+	
+	If $\{ {n_i}\} $  represents a set of the neighbor nodes of node $i$, then ${v_j}$  stands for a dependent node of ${v_i}$ . What's more, we call ${D_{i\max }}$  the max influence dependence.
+	\begin{equation}
+	{v_j} = \mathop {\max }\limits_{{v_k} \in \{ {n_i}\} } \frac{{{n_{ik}} + 1}}{{d({v_i})}}
+	\end{equation}
+	
+	\item \textbf{Conditional dependence of node to community}
+\end{itemize}
+
+The conditional dependence of node i to community is defined like this.
+
+\begin{equation}
+{D_{im,{C_k}}} = \frac{{{n_{im,{C_k}}}}}{{\left| {{n_{_i}}} \right|}}
+\end{equation}
+
+\textit{Where ${n_{im,{C_k}}}$ represents the dependence nodes of node $i$ , and  $\left| {{n_{_i}}} \right|$ stands for the whole number of neighbor nodes of node $i$.}
+
+We take some examples to illustrated the notions above.
+\begin{figure}[htbp]
+	\centering
+	\begin{center}
+		\includegraphics[height=5cm]{./figure/zxcv.png}
+		\caption{\textit{There are three sketch maps, named map(a), map(b), map(c) in order.In the sketch map(a), the same neighbor nodes amounts ${n_{ij}}$ is equal to 3. In the sketch map(b), the amouts of neighbor nodes in ${C_k}{n_{i,}}_{{c_k}}$ is equal to 3. In the sketch map(c), ${v_j}$ is the dependent node of ${v_i}$.}}
+		\label{fig:occupation}
+	\end{center}
+\end{figure}
+
+Since the three indexes about dependency of node are obtained, we put forward a new algorithm, which is called Dependent Community Partition Algorithm, to gain the communities in this co-author network.
+
+\begin{itemize}
+	\item \textit{Step 1:} Calculate the degree of nodes in the $\mathop {G - Shall}\limits^{(0)} $ . Then obtain $\mathop {G - Shall}\limits^{(3)} $ by using K-Shall method.
+	
+	\item \textit{Step 2:} Calculate the the max influence dependence ${D_{i\max }}$ of all the nodes in the co-author network. After that, find the maximum of ${D_{i\max }}$ . Then we find out all the source nodes for the maximum ${D_{i\max }}$ , and these source nodes as well as their dependence nodes make up a original community. The source node is called organizer.
+	
+	\item \textit{Step 3:} As for a node, if the degree of dependence from the node to a existing community is greater than 0.5, the node is absorbed in this community.
+	
+	\item \textit{Step 4:} Repeat step 3 until no nodes are drawn into the community.
+	
+	\item \textit{Step 5:} Repeat step 4 until no new community is found.
+\end{itemize}
+
+Therefore, for every node  ${v_i}$ in this network, there must be a community contains it. Next, we discuss the influence of a node in the community. For a node in the community, the influence of node can be calculate by equation (4).
+\begin{equation}
+{f_{external}}({v_i}) = d({C_k}) \cdot \frac{{{k_s} + 1}}{{{k_{s\max }}}}
+\end{equation}
+\textit{Where ${k_s}$ represents the layer of the node existing when using K-Shall algorithm.}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{center}
+		\includegraphics[width=10cm]{./figure/3_shell_group.pdf}
+		\caption{4-Shall Group-based complex network}
+		\label{fig:occupation}
+	\end{center}
+\end{figure}
+
+As we can see in Figure8, to show the connection of co-author undirected network and its grouping situation, a diagram is drafted by Matlab and D3 Framework. Group's influence is ranked clockwise.
+
+Through the pictures, we can clearly see that the members in the same group have a closer and frequent cooperation relationship, which proves the correctness of our grouping model. At the same time, for the first group, there is a much more intensive network of partnerships  
+
+Since the internal and external attributes of a node is gained, we can determine the total influence of a node.
+\begin{equation}
+f({v_i}) = \alpha  \cdot \frac{{{f_{internal}}({v_i})}}{{\max \{ {f_{internal}}({v_i})\} }} + \beta  \cdot \frac{{{f_{external}}({v_i})}}{{\max \{ {f_{external}}({v_i})\} }}
+\end{equation}
+\textit{Where  $\alpha $ is internal influence factor , while $\beta $ is external influence factor.}
+
+\noindent \textbf{{\large The most signifficant researchers :}}
+
+Based on our model, in order to determine the researchers who has significant influence within the network, we calculate influence of every researcher in this network. Then, we present it in figure 8.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{center}
+		\includegraphics[width=12cm]{./figure/group_f.pdf}
+		\caption{\textit{This graph shows the influence of 210 researchers in this fitting co-author network. In this graph, every circle stands for a researcher, the size of circle represents the influence of a researcher. In addition, the researchers owing the same color belong to a common group.}}
+		\label{fig:occupation}
+	\end{center}
+\end{figure}
+
+As figure 8 shows, Alon Nogam, Furedi Zoltan, Sos Vera Turan and so on are the core nodes of the co-author network. Each of them belongs to the same community, which represents that this community has strong impact in this network. What' more, the co-authorship in this community is very stable.
+
+ More specifically, we list the top 10 researchers in the influence of the 210 researchers in table 3.
+
+\begin{table}[htbp]
+	\centering
+	\caption{The most influential researchers in this network}
+	\begin{tabular}{ccc}
+		\toprule
+		Name & No.  & Influence \\
+		\midrule
+		\multicolumn{1}{c}{Alon Nogam} & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{1} \\
+		\multicolumn{1}{c}{Furedi Zoltan} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{0.8473} \\
+		\multicolumn{1}{c}{Sos Vera Turan} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{0.8287} \\
+		\multicolumn{1}{c}{Bollobas Bela} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{0.8145} \\
+		\multicolumn{1}{c}{Spencer Joel Harold} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{0.7164} \\
+		\multicolumn{1}{c}{Lovasz Laszlo} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{0.7013} \\
+		\multicolumn{1}{c}{Nesetril Jaroslav} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{0.6807} \\
+		\multicolumn{1}{c}{Szemeredi Endre} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{0.6765} \\
+		\multicolumn{1}{c}{Harary Frank} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{0.6671} \\
+		\multicolumn{1}{c}{Babai Laszlo} & \multicolumn{1}{c}{10} & \multicolumn{1}{c}{0.6634} \\
+		\bottomrule
+	\end{tabular}%
+	\label{tab:ability}%
+\end{table}%
+
+As we can see in table 3, Alon Nogam is the most influential and signifficant researcher in this co-author network. The community he stays is also the most powerful. He not only often co-author papers with the members of his group, but also has commpact association with people outside his community. 
+	\subsection{Task 3 : the Three-layer Directed-weighted Network }
+Task three requires to compare the significance of a research paper by analyzing the important works that follow from its publication. Then find the most influential paper in network science and explain it. After that, we will migrate our model to measure the impact of specific university, department, or a journal in network science.
+
+\subsubsection{Construciton of Model}
+In the co-author network, the nodes stand for researchers. Different from the co-author network, we build a directed-weighted network, in which the nodes represent papers.
+First, we discuss four factors which are related with the influence of a paper. 
+
+
+
+\begin{itemize}
+	\item \textbf{The influence of the journal which received the paper.} If a paper is received by a more influential journal, the influence of the paper will be higher.
+	\item \textbf{The cited situation of a paper.} Situation includes two aspects, which are the frequency of citation and the influence of the citing paper.
+	\item \textbf{The academic performance of the author. } If the author is famous, it is more likely that his or her paper will be paid close attention to. The academic performance of author can be measured by H-index, according to the international practice.
+\end{itemize}	
+
+As is analyzed above, the influence of a paper is associated with not only the properties of itself but also the influence of another paper, which cites the source paper. Therefore, the cited situation can be study by the directed-weighted network. Having considered the restriction of the data size, we build a three-layer directed-weighted network to determine the influence of papers.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{center}
+		\includegraphics[width=15cm]{./figure/qs2222.pdf}
+		\caption{\textit{The nodes in the first layer are the papers from the attached list. The nodes in the second layer are the papers which cited the papers in the first layer. The same to the third layer.}}
+		\label{fig:occupation}
+	\end{center}
+\end{figure}
+
+In this network, nodes represent papers, while directed edges stand for cited situation. For example, node A points to node B. That means paper A is cited by paper B. After figuring out the fundamental relationship between nodes in this network, we focus on how nodes influence each other within a layer network or between two layer network.
+
+First, we give the definition of papers in the network. Suppose that a collection of papers in the $k(k = 1,2,3)$  layer is 
+${V^{(k)}} = \{ {v_1}^{(k)},{v_2}^{(k)},...,{v_{Nk}}^{(k)}\} $. In the first layer, ${N_1} = 16$ , representing that there are 16 papers in this layer. As for the second or third layer, the number of papers are not known for sure yet.
+
+Then, we investigate the relationship between papers \textbf{in the same layer}. Analyzing the given 16 papers, we find that these paper cited each other, as is often the case. Therefore, we define the directed edges ${E^{(k)}} = \{ {e_1}^{(k)},{e_2}^{(k)},...,{e_{{N_k}}}^{(k)}\} $ , characterizing the cited situation in the same layer. For example, ${e_{ij}}^{(1)}$  stands for paper i was cited by paper j in the first layer.
+
+In addition, we figure out the relationship between papers \textbf{in different layers}. The citing matrix are ${P^{(1 - 2)}}$ , ${P^{(2 - 3)}}$ . 
+\begin{equation}
+{P^{(1 - 2)}} = {\{ e_{{v_i}^{(1)}{v_j}^{(2)}}^{(1 - 2)}\} _{{N_2} \times {N_1}}}
+\end{equation}
+\begin{equation}
+e_{{v_i}^{(1)}{v_j}^{(2)}}^{(1 - 2)} = \left\{ \begin{array}{l}
+1\;\;\;\;\;the\;paper\;{v_1}^{(1)}\;was\;cited\;by\;the\;paper\;{v_2}^{(2)}\\
+0\;\;\;\;\;no\;relationship
+\end{array} \right.
+\end{equation}
+
+\textit{Where   represents paper   in the first layer of the network.}
+
+So far, the three-layer directed-weighted network is established, which can be shown as follows.
+\begin{equation}
+Influence({v_i}^{(1)}) = {\xi _1} \cdot {f_{internal}}({v_i}^{(1)}) + {\xi _2} \cdot JI({v_i}^{(1)}) + {\xi _3} \cdot {H_{index}}({v_i}^{(1)}) + {\xi _4} \cdot {Q_s}({v_i}^{(1)})
+\end{equation}
+\begin{equation}
+{Q_s}({v_i}^{(1)}) = \sum\limits_{j = 1}^N {Influence({v_j}^{(2)}) \cdot e_{{v_i}^{(1)}{v_j}^{(2)}}^{(1 - 2)}} 
+\end{equation}
+
+\textit{Where ${f_{internal}}$ represents the influence of citing papers in the same layer. $JI$ stands for the influence of the journal which received the paper.  ${H_{index}}$ means the H-index value of the First Author. ${Q_s}$  represents the influence coming from the citing paper in the next layer. All of the variables are normalized.}
+
+As for the nodes in the second layer, the calculation formula is similar to equation (18). However, when it comes to the nodes in the three layer, there are some changes in ${Q_s}$  .
+\begin{equation}
+{Q_s}({v_i}^{(3)}) = Frequency({v_i}^{(3)})
+\end{equation}
+\textit{Where ${Q_s}$ only takes the frequency of the citation into account due to the restriction of data.}
+
+\subsubsection{the Result of Model}
+We number the paper in the attachment in sequence.On the basis of our model, we calculate the relative influence of the 16 papers by using the attached data. And the result is shown in figure 10.
+
+\begin{figure}[htbp]
+	\centering
+	\begin{center}
+		\includegraphics[height=10cm]{./figure/66666.png}
+		\caption{\textit{This diagram shows the influence of papers. Each color represents an index in every paper.}}
+		\label{fig:occupation}
+	\end{center}
+\end{figure}
+As we can see in figure 10, the most influential paper is No.14, and thus its relative influence is 1. In the contrast, No.15 is the least influential paper among the 16 papers, whose relative influence is only 0.3754. In additon, it is obvious that JI index accounts for a large proportion during the measure of influece. That illustrates that the type of jounal where the paper was received plays an important role in influence measure, as for the paper network. Namly, community attribute should be taken into account when measuring influence in the network. It proves our model is scientific.
+
+\subsubsection{Model Comparision and Migration}
+\noindent \textbf{Model Comparision:}
+
+As for an individual network researcher,  there are different methods to measure the influence currently. For exmaple, in the past, the traditional Ks algorithm is often used to calculate the influence of nodes in the network.
+
+\begin{itemize}
+	\item[-] \emph{\textbf{As for the Ks algorithm method:}} \ This method will contribute to a situation that many nodes in the network have the same Ks value, which decrease the accuracy of model.
+	\item[-] \emph{\textbf{As for the K-shall algorithm method in our model:}} \ The K-Shell algorithm in our model consider degrees of a node and its neighbour nodes, avoiding the same value of many nodes. What's more, the time comlexity of this method is lower relativly. Especially for a large network, it takes less time to carry out the model, which is pratical.
+\end{itemize}
+
+\noindent \textbf{Model Migration:}
+
+As for a specific university, department, or a journal in network science, we can consider it as a community. And thus, we can use \textbf{the Community Division Influence Model} to evaluate the impact. 
+\section{Model Extension}
+
+\subsection{Task 4: An Applicantion of Model in Moviestars Based on Python Spider}
+As for the task four, we are asked to apply our model to a completely different set of network influence. Here, we study the influence of movie actors in Douban.
+
+As we know, Jackie Chen, who is the counterpart of Erdos in the moviedom, plays such an important role in film industry that every one likes watching the movies he participated! In addition, the movies that he acted are considerable. He cooperated with many influential movie stars, such as Yun-fat Chow, Andy Lau, Stephen Chow, Maggie Cheung, Antia Mui and so on. On the whole, famous Chinese actors once cooperated with Jackie Chen.
+
+Therefore, we apply our model to establish the Jackie Chen1 Network. Since the actor who cooperated with Jackie Chen are considerable, we only consider the actors who once cooperated with Jackie Chen more than a time.
+\begin{itemize}
+	\item First, we utilize Python to obtain the actors who cooperated with Jackie Chen more than a time by crawling the data. These people are the nodes making up the Jackie Chen1 network.
+	\item Totally, we obtain 443 actors as nodes in the first step. Then we use Python to figure out the cooperation situation of by rawling the data again. If an actor once cooperated with another actor within this Jackie Chen1 network, the two actors are connected with an edge.
+	\item On the basis of the K-Shall algorithm, limit this Jackie Chen1 network, which is similar to Erdos1 network.
+	\item Last, we take off the main node, Jackie Chen. Since he is the most influential actor like Erdos in the Erdos1 network. Then, the Jackie1 network is established.	
+\end{itemize}
+
+\noindent \textbf{The results:}
+	
+\begin{figure}[htbp]
+	\centering
+	\begin{center}
+		\includegraphics[height=8cm]{./figure/chenglong.pdf}
+		\caption{The most influential actors in Jackie1}
+		\label{fig:occupation}
+	\end{center}
+\end{figure}
+
+As we can see in this picture, the top 10 influential actors in Jackie1 are listed. Stephrn Chow becomes the first, followed closely by Hung Kam-Bo. In general, actors' Internal influence is larger than external influence. And the results of the application of our model is quite good.
+
+
+\subsection{Task 5: Expansibility of Model}
+	Complex network theory is used to construct a evoling model with real system properties. Therefore it can be applied to different types of areas for its utilization value. 
+	
+	\noindent \textbf{As for the utility:}
+	
+	Our models are established to figure out the relationship and influence between nodes in the network espacially. Therefore, our models have a wide range of application scope. For examples, a microblog sent by the most influential user in Twitter will quickly spread in the network. The economic instability in Minority countries will spread around the world in a fast speed. we can study the spreading prossess by analyzing the relationship between nodes in the network.
+	
+	\noindent \textbf{As for the science:}
+	
+	Our model discuss the internal and external attributes. Compared to the traditonal method, we pay attention to that the importance of a node depends on his own centrality as well as his neighbor's. And this increase the accuracy of model. For example, in political network, the president is the most influeniel node. His wife have compact assotiation with him but cool assotiation with other officials. However, the influence of the president's wife is large, since she and president consist of a family, which is a community in our model. Therefore, what is noticable is the role a community plays in the network.
+	
+	Therefore, it is proved that our models are full of strong science, understanding and utility of modeling influence and impact within networks.
+	
+	\section{Sensitivity Analysis}% Îó²î/ÁéÃô¶È·ÖÎö
+	\noindent \textbf{(1) Sensitivity analysis to model in task 1:}
+	
+	In task 1, we establish the co-author network and analyze the global properties, which are efficiency, co-mean distance, vulnerability, clusting coefficients and the mean degree of nodes. In order to test the sensitivity, we try to take off a node who is most important in sequence from the network, investigating the changes of the five parameters.
+
+	\begin{figure}[htbp]
+		\centering
+		\begin{center}
+			\includegraphics[width=11cm]{./figure/sensitibility.png}
+			\caption{\textit{This diagram shows how the the five parameters changes if we take off a node from the network. The x axis represents the number of deleted node.}}
+			\label{fig:occupation}
+		\end{center}
+	\end{figure}
+	
+	As we can see in figure 11, on the whole, the four parameters lie in between 0.96 and 1, which are stable basically. However, what is notiable is that the vulnerability of model changes greatly when node No.1 is taken off. This indicates that the No.1 author is influential and important to the network. As for the global properties, these slight changes shows our model is robust and scientific.
+	
+		\noindent \textbf{(2) Sensitivity analysis to model in task 2:}
+		
+	In task 2, we build the K-Shall and Community Index Influence Model to determine the most influential author in the network. Finally, we obtain the rank of top 10 authors and their relative influence. Our method is still that tak off one of the most influential node and observe the changes of rank.
+	
+	On the whole, we discuss the changes of the Kendall coefficience $\tau $ , which reflect the  consistency of rank. Since the Kendall coefficience $\tau $ is defined above, we will not describe it here.
+	
+	On the local, we study the changes of the ordering difference. First, the original order of the top 10 researchers is $Ran{k^{(0)}}$. After taking off a node, the order of the rest of the top 10 researchers is $Ran{k^{(i)}}$
+	Suppose that the most influential nodes obetained in task 2 is 	$\{ {v_1},{v_2},...{v_{10}}\} $. As for node ${v_j}(j \ne i)$, the current rank of it is ${t_{{v_j}}}^{(i)}$. We can get the change of its rank $\Delta {t_{{v_j}}}^{(i)} = \left| {{t_{{v_j}}}^{(i)} - {t_{{v_i}}}^{(0)}} \right|$. Therefore, the whole changes of rank is
+	 \begin{equation}
+	 \Delta Ran{k^{(i)}} = \sum\limits_{j \ne i} {\Delta {t_{{v_j}}}^{(i)}}  = \sum\limits_{j \ne i} {\left| {{t_{{v_j}}}^{(i)} - {t_{{v_i}}}^{(0)}} \right|}  
+	 \end{equation}
+	 Then, we can obtain the changes of rank when node i is taken off.
+	
+	\begin{figure}[htbp]
+		\centering
+		\begin{center}
+			\includegraphics[width=11cm]{./figure/dierwen.png}
+			\caption{This graph shows the change of rank.}
+			\label{fig:occupation}
+		\end{center}
+	\end{figure}
+		
+	As we can see in figure 13,	expcept node 1 and node 2, $\tau $ is close to 1, which represents our model is stable. However, when node 1 or node 2 is taken off, great changes takes in $\tau $ ,which is between 0.6 and 0.8. When it comes to the change of rank, it is influenced by the movement of node, which varies from 0 to 20.
+	
+\noindent \textbf{(3) Sensitivity analysis to the changes in community}
+
+There is a change of node that is usual in our life. A researcher depart from a community and join a new community. Namely, in a community, ressearcher A will end a co-author relationship with the people in the old community, and establish a new relationship with the people in the community in which he or she joins. For example, a professor in a university is hired by another school, he will leave the original research group and join the new group. The process not only change the construction of the network, but also the community situaiton.
+Last, we can obtain the influence of the researcher during the change.
+
+We choose \textbf{LACAMPAGNE CAROKE B} as our expereimental object, which was in the community 3. After changing its belonging community to 1, the results are as follow:
+
+\begin{table}[htbp]
+	\centering
+	\caption{The results of sensitivity analysis to the changes in community}
+	\begin{tabular}{cccc}
+\toprule
+ &f &fin &fex \\ \hline  % \hline ?????????
+Previous &0.16223 &0.22477 &0.01633\\        
+Present &0.40998 &0.24920 &0.78513\\ 		\bottomrule
+	\end{tabular}%
+	\label{tab:ability}%
+\end{table}%
+
+As we can see, both the internal influence and the external influence increase in a large scale. The reasons may be that the latter community1 has a lager influence generally. In this community, researcher can connect lager influential co-author. Thus, his influence incease sharply.  
+
+	\section{Strengths and Weaknesses}% Í¬Àí
+	\subsection{Strengths}
+	\begin{enumerate}%[(1)] %·ÖÌõÁÐÐ´
+		\renewcommand{\labelenumi}{(\theenumi)}
+		\item The model has a more comprehensive index setting and judging ability. For the overall network attributes,we select five indicators to describe the network, which is a more comrehensive analysis.
+		\item The model has a very strong stability. Three sensitive analysis are carried out to prove it.  
+		\item The model has a good expansiblity,which means our model can be applied to many situation.
+		\item The K-shell algorithm is applied to simpify the network.  On the one hand, the core part is extracted to be analyze. On the other hand, unnecessary caculation is omitted. 
+	\end{enumerate}
+	\subsection{Weaknesses}
+	\begin{enumerate}%[(1)] %·ÖÌõÁÐÐ´
+		\renewcommand{\labelenumi}{(\theenumi)}
+		\item The data resources are very limitted. Thus, we can't apply our models to various aspects.
+		\item The model is computaionally intensive. The program is hard to code.
+	\end{enumerate}
+	
+	
+	%ÒÔÏÂÊÇ²Î¿¼ÎÄÏ×
+	\phantomsection% Éú³É¸ÃÒ³µÄÁ´½Ó
+	\addcontentsline{toc}{section}{\refname}
+	\begin{thebibliography}{}
+		%
+		% Ê¹ÓÃÖ¸Áî\bibitem ¹¹ÔìÒ»Ìõ²Î¿¼ÎÄÏ×.
+		% ¾ßÌå¹¹Ôì·½Ê½£¬²Î¿¼ÒÔÏÂ²Î¿¼ÎÄÏ×¸ñÊ½ËµÃ÷ÒÔ¼°Ê¾Àý
+		% Ó¦¾¡¿ÉÄÜÊ¹ÓÃÓ¢ÎÄ¸ñÊ½
+		%
+		\bibitem{RefJ}
+		% ÆÚ¿¯ÒýÓÃ¸ñÊ½
+		% ÖÐÎÄµÄÒýÓÃ¸ñÊ½
+		% ×÷Õß. ±êÌâ[J].ÆÚ¿¯Ãû, ·¢±íÄê·Ý,  ¾íºÅ(ÆÚºÅ), Ò³Âë
+		% Author. Article title[J]. Journal name, year, Volume(issue), page numbers.
+		% ÐÕ£¬Ãû×ÖÊ××ÖÄ¸.(Äê). ÌâÄ¿. ÆÚ¿¯Ãû(Ð±Ìå), ¾íºÅ(ÆÚºÅ), Ò³Âë.
+	Barabasi A L, Albert R. Albert, R.: Emergence of Scaling in Random Networks. Science 286, 509-512[J]. 1999, 286(5439):509-512.
+
+	
+		%»òÕß Last name, Initials.,& Last name, Initials. (year). Title.\emph{The journal name}. Volume(Issue), pages.
+		
+		\bibitem{RefJ}
+		% ÆÚ¿¯ÒýÓÃ¸ñÊ½
+		% ÖÐÎÄµÄÒýÓÃ¸ñÊ½
+		% ×÷Õß. ±êÌâ[J].ÆÚ¿¯Ãû, ·¢±íÄê·Ý,  ¾íºÅ(ÆÚºÅ), Ò³Âë
+		% Author. Article title[J]. Journal name, year, Volume(issue), page numbers.
+		% ÐÕ£¬Ãû×ÖÊ××ÖÄ¸.(Äê). ÌâÄ¿. ÆÚ¿¯Ãû(Ð±Ìå), ¾íºÅ(ÆÚºÅ), Ò³Âë.
+		Yu W, Chen G, Lü J. On pinning synchronization of complex dynamical networks [J]. Automatica, 2009, 45
+		%»òÕß Last name, Initials.,& Last name, Initials. (year). Title.\emph{The journal name}. Volume(Issue), pages.
+		\bibitem{RefJ}
+		% ÆÚ¿¯ÒýÓÃ¸ñÊ½
+		% ÖÐÎÄµÄÒýÓÃ¸ñÊ½
+		% ×÷Õß. ±êÌâ[J].ÆÚ¿¯Ãû, ·¢±íÄê·Ý,  ¾íºÅ(ÆÚºÅ), Ò³Âë
+		% Author. Article title[J]. Journal name, year, Volume(issue), page numbers.
+		% ÐÕ£¬Ãû×ÖÊ××ÖÄ¸.(Äê). ÌâÄ¿. ÆÚ¿¯Ãû(Ð±Ìå), ¾íºÅ(ÆÚºÅ), Ò³Âë.
+	Kumpula J M, Saramäki J, Kaski K, et al. Limited resolution in complex network community detection with Potts model approach[J]. European Physical Journal B, 2007, 56(1):41-45.
+		%»òÕß Last name, Initials.,& Last name, Initials. (year). Title.\emph{The journal name}. Volume(Issue), pages.
+		
+		\bibitem{RefJ}
+		% ÆÚ¿¯ÒýÓÃ¸ñÊ½
+		% ÖÐÎÄµÄÒýÓÃ¸ñÊ½
+		% ×÷Õß. ±êÌâ[J].ÆÚ¿¯Ãû, ·¢±íÄê·Ý,  ¾íºÅ(ÆÚºÅ), Ò³Âë
+		% Author. Article title[J]. Journal name, year, Volume(issue), page numbers.
+		% ÐÕ£¬Ãû×ÖÊ××ÖÄ¸.(Äê). ÌâÄ¿. ÆÚ¿¯Ãû(Ð±Ìå), ¾íºÅ(ÆÚºÅ), Ò³Âë.
+		Faridah Hani Mohamed Salleh,Shereena Mohd Arif, Suhaila Zainudin, et al. Reconstructing gene regulatory networks from knock-out data using Gaussian Noise Model and Pearson Correlation Coefficient. [J]. Computational Biology and Chemistry, 2015, 59, 3-14
+		%»òÕß Last name, Initials.,& Last name, Initials. (year). Title.\emph{The journal name}. Volume(Issue), pages.
+		\bibitem{RefJ}
+	Guanghui Wen, Zhisheng Duan, Guanrong, et al. A local-world evolving network model with aging nodes. [J]. Physica A, 2011, 390, 4012-4026
+		
+		% etc
+	\end{thebibliography}
+
+
+	
+	
+	
+	
+	
+	
+\end{document}
